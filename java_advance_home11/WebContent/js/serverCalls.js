@@ -22,3 +22,14 @@ $("button.addBook").click(function() {
 	});
 
 });
+
+$("button.buy-product").click(function() {
+	var bookId = jQuery(this).attr("product-id");
+
+	$.post("bucket", {'bookId': bookId},
+			function(data) {
+				if (data == 'Success') {
+					$('[data-dismiss=modal]').trigger({type: "click"});
+				}
+	});
+});
