@@ -20,7 +20,7 @@ $("button.register")
 					var lastName = $("form.register-form input.lastName").val();
 					var email = $("form.register-form input.email").val();
 					var password = $("form.register-form input.password").val();
-					var cpassword = $("form.register-form input.cpassword").val();
+					var cpassword = $("form.register-form input.confirmPassword").val();
 
 					if (firstName == '' || lastName == '' || email == '' || password == '' || cpassword == '') {
 						alert("Please fill all fields...!!!!!!");

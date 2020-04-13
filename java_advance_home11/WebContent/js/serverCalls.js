@@ -1,4 +1,4 @@
-$("button.addBook").click(function() {
+$("button.createProduct").click(function() {
 
 	let name = $("form.addBook input.bookName").val();
 	let description = $("form.addBook input.bookDescription").val();
@@ -13,7 +13,7 @@ $("button.addBook").click(function() {
 		
 	};
 
-	
+	//add validation
 	$.post("book", book, 
 			function(data) {
 				if (data == 'Success') {

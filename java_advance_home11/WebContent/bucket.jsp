@@ -23,11 +23,15 @@
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<div class="container-fluid">
-		<div class="row">
-					
-				<h1>Bucket of Product</h1>
-				
+		<div>
+			<input type="text" id="myInput" onkeyup="myFunction()"
+				placeholder="Search for names.." title="Type in a name">
+
+			<table id="myTable">
+
+			</table>
 		</div>
+
 
 	</div>
 
@@ -49,5 +53,6 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="js/header.js"></script>
+	<script src="js/bucket.js"></script>
 </body>
 </html>

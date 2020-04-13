@@ -25,7 +25,7 @@
 	<div class="container-fluid">
 		<div class="row">
 
-			<form class="addBook">
+			<form class="createProduct">
 				<div class="form-group">
 					<input type="text" class="form-control bookName" 
 						placeholder="enter book name">
@@ -47,7 +47,7 @@
 				</div>
 				
 				
-				<button class="btn btn-primary addBook">Submit</button>
+				<button class="btn btn-primary createProduct">Submit</button>
 			</form>
 
 		</div>
@@ -72,6 +72,6 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="js/header.js"></script>
-	<script src="js/serwerCalls.js"></script>
+	<script src="js/serverCalls.js"></script>
 </body>
 </html>
