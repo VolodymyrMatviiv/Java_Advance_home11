@@ -10,7 +10,6 @@ import ua.lviv.lgs.dao.impl.BookDaoImpl;
 import ua.lviv.lgs.dao.impl.BucketOrderDaoImpl;
 import ua.lviv.lgs.domain.Book;
 import ua.lviv.lgs.service.BookService;
-import ua.lviv.lgs.service.CustomerService;
 
 public class BookServiceImpl implements BookService {
 

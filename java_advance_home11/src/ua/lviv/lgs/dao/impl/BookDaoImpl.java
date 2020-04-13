@@ -15,7 +15,7 @@ import ua.lviv.lgs.domain.Book;
 import ua.lviv.lgs.utils.ConnectionUtile;
 
 public class BookDaoImpl implements BookDao {
-	
+
 	private static String READ_ALL = "select * from product";
 	private static String CREATE = "isert into product('book_name' ,'book_description' ,'price' ,'isbn') value(?,?,?,?)";
 	private static String READ_BY_ID = "select * from product where id =?";
@@ -123,4 +123,3 @@ public class BookDaoImpl implements BookDao {
 	}
 
 }
- 

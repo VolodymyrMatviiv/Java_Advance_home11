@@ -9,7 +9,6 @@ import ua.lviv.lgs.dao.BucketOrderDao;
 import ua.lviv.lgs.dao.impl.BucketOrderDaoImpl;
 import ua.lviv.lgs.domain.BucketOrder;
 import ua.lviv.lgs.service.BucketOrderService;
-import ua.lviv.lgs.service.CustomerService;
 
 public class BucketOrderServiceImpl implements BucketOrderService {
 
