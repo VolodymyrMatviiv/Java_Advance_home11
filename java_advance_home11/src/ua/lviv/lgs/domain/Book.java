@@ -1,4 +1,4 @@
-package ua.lviv.lgs.dommain;
+package ua.lviv.lgs.domain;
 
 public class Book {
 

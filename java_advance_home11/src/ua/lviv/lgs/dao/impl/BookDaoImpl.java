@@ -8,8 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import ua.lviv.lgs.dao.BookDao;
-import ua.lviv.lgs.dommain.Book;
+import ua.lviv.lgs.domain.Book;
 import ua.lviv.lgs.utils.ConnectionUtile;
 
 public class BookDaoImpl implements BookDao {
@@ -19,11 +21,13 @@ public class BookDaoImpl implements BookDao {
 	private static String READ_BY_ID = "select * from product where id =?";
 	private static String UPDATE_BY_ID = "update product set book_name=?, book_description=?, price=?, isbn=? where id=?";
 	private static String DELETE_BY_ID = "delete from product where id=?";
-	
+
+	private static Logger LOGGER = Logger.getLogger(BookDaoImpl.class);
+
 	private Connection connection;
 	private PreparedStatement preparedStatement;
-	
-	public  BookDaoImpl() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
+
+	public BookDaoImpl() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		connection = ConnectionUtile.openConnection();
 	}
 
@@ -41,7 +45,7 @@ public class BookDaoImpl implements BookDao {
 			result.next();
 			book.setId(result.getInt(1));
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.error(e);
 		}
 
 		return book;
@@ -61,11 +65,11 @@ public class BookDaoImpl implements BookDao {
 			String bookDescription = result.getString("book_description");
 			Double price = result.getDouble("price");
 			String isbn = result.getString("isbn");
-			
+
 			book = new Book(bookId, bookName, bookDescription, price, isbn);
 
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.error(e);
 		}
 		return book;
 	}
@@ -80,7 +84,7 @@ public class BookDaoImpl implements BookDao {
 			preparedStatement.setString(4, book.getIsbn());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.error(e);
 		}
 		return book;
 	}
@@ -92,9 +96,9 @@ public class BookDaoImpl implements BookDao {
 			preparedStatement.setInt(1, id);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.error(e);
 		}
-		
+
 	}
 
 	@Override
@@ -109,11 +113,11 @@ public class BookDaoImpl implements BookDao {
 				String bookDescription = result.getString("book_description");
 				Double price = result.getDouble("price");
 				String isbn = result.getString("isbn");
-								
+
 				bookRecords.add(new Book(bookId, bookName, bookDescription, price, isbn));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.error(e);
 		}
 		return bookRecords;
 	}

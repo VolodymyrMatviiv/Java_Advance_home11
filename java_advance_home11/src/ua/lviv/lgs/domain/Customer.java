@@ -1,4 +1,4 @@
-package ua.lviv.lgs.dommain;
+package ua.lviv.lgs.domain;
 
 public class Customer {
 
@@ -7,22 +7,33 @@ public class Customer {
 	private String lastName;
 	private String email;
 	private String customerRole;
+	private String password;
 
-	public Customer(Integer id, String firstName, String lastName, String email, String customerRole) {
-		
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Customer(Integer id, String firstName, String lastName, String email, String customerRole, String password) {
+
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.customerRole = customerRole;
+		this.password = password;
 	}
 
-	public Customer(String firstName, String lastName, String email, String customerRole) {
-		
+	public Customer(String firstName, String lastName, String email, String customerRole, String password) {
+
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.customerRole = customerRole;
+		this.password = password;
 	}
 
 	public Integer getId() {
@@ -74,6 +85,7 @@ public class Customer {
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
 
@@ -111,13 +123,18 @@ public class Customer {
 				return false;
 		} else if (!lastName.equals(other.lastName))
 			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", customerRole=" + customerRole + "]";
+		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", customerRole=" + customerRole + ", password=" + password + "]";
 	}
 
 }

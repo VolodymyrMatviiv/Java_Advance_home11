@@ -3,12 +3,18 @@ package ua.lviv.lgs.service.impl;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import ua.lviv.lgs.dao.BucketOrderDao;
 import ua.lviv.lgs.dao.impl.BucketOrderDaoImpl;
-import ua.lviv.lgs.dommain.BucketOrder;
+import ua.lviv.lgs.domain.BucketOrder;
 import ua.lviv.lgs.service.BucketOrderService;
+import ua.lviv.lgs.service.CustomerService;
 
 public class BucketOrderServiceImpl implements BucketOrderService {
+
+	private static Logger LOGGER = Logger.getLogger(BucketOrderDaoImpl.class);
+	private static BucketOrderService bucketOrderServiceImpl;
 
 	private BucketOrderDao bucketOrderDao;
 
@@ -18,8 +24,17 @@ public class BucketOrderServiceImpl implements BucketOrderService {
 			bucketOrderDao = new BucketOrderDaoImpl();
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
 
-			e.printStackTrace();
+			LOGGER.error(e);
 		}
+	}
+
+	public static BucketOrderService getBucketOrderService() {
+		if (bucketOrderServiceImpl == null) {
+			bucketOrderServiceImpl = new BucketOrderServiceImpl();
+		}
+
+		return bucketOrderServiceImpl;
+
 	}
 
 	@Override
