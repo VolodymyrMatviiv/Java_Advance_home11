@@ -28,6 +28,8 @@ public class RegistrationServlet extends HttpServlet {
 			customerService.create(new Customer(firstName, lastName, email, CustomerRole.USER.toString(), password));
 		}
 				
-		request.getRequestDispatcher("cabinet.jsp").forward(request, response);	
+		response.setContentType("text/plain");
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write("Success");
 	}
 }
